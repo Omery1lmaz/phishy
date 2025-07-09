@@ -34,11 +34,11 @@ export default function UserRegister() {
   };
 
   return (
-    <Box display="flex" alignItems="center" justifyContent="center" minHeight="100vh" fontFamily="Inter, Roboto, sans-serif" sx={{ background: '#f8fafc' }}>
+    <Box display="flex" alignItems="center" justifyContent="center" minHeight="100vh" fontFamily="Inter, Roboto, sans-serif" sx={{ background: '#f8fafc', p: { xs: 1, sm: 2 } }}>
       <Box maxWidth={400} width="100%">
-        <Card sx={{ borderRadius: 4, boxShadow: '0 4px 24px rgba(0,0,0,0.07)' }}>
-          <CardContent>
-            <Typography variant="h5" fontWeight={800} mb={2}>User Register</Typography>
+        <Card sx={{ borderRadius: 4, boxShadow: '0 4px 24px rgba(0,0,0,0.07)', p: { xs: 1, sm: 2 } }}>
+          <CardContent sx={{ p: { xs: 1, sm: 2 } }}>
+            <Typography variant="h5" fontWeight={800} mb={2} fontSize={{ xs: 22, sm: 26 }}>User Register</Typography>
             <form onSubmit={handleSubmit} autoComplete="off">
               <TextField
                 label="Email"
@@ -48,6 +48,7 @@ export default function UserRegister() {
                 sx={{ mb: 2 }}
                 required
                 type="email"
+                size="small"
               />
               <TextField
                 label="Password"
@@ -57,8 +58,9 @@ export default function UserRegister() {
                 sx={{ mb: 2 }}
                 required
                 type="password"
+                size="small"
               />
-              <Button type="submit" variant="contained" color="primary" fullWidth size="large" sx={{ fontWeight: 700, borderRadius: 2 }} disabled={loading}>
+              <Button type="submit" variant="contained" color="primary" fullWidth size="large" sx={{ fontWeight: 700, borderRadius: 2, py: 1.2, fontSize: { xs: 15, sm: 17 } }} disabled={loading}>
                 {loading ? 'Registering...' : 'Register'}
               </Button>
             </form>

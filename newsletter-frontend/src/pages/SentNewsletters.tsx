@@ -42,9 +42,9 @@ export default function SentNewsletters() {
 
   return (
     <Box display="flex" minHeight="100vh" fontFamily="Inter, Roboto, sans-serif">
-      <Box sx={{ flexGrow: 1, ml: { xs: 0, md: 28 }, p: { xs: 2, md: 4 }, minHeight: '100vh', background: '#f8fafc' }}>
+      <Box sx={{ flexGrow: 1, ml: { xs: 0 }, p: { xs: 1, sm: 2, md: 4 }, minHeight: '100vh', background: '#f8fafc' }}>
         <Box display="flex" alignItems={{ xs: 'stretch', sm: 'center' }} flexDirection={{ xs: 'column', sm: 'row' }} justifyContent="space-between" mb={4} gap={2}>
-          <Typography variant="h4" fontWeight={800} fontFamily="Inter, Roboto, sans-serif">Sent Newsletters</Typography>
+          <Typography variant="h4" fontWeight={800} fontFamily="Inter, Roboto, sans-serif" fontSize={{ xs: 22, sm: 28 }}>Sent Newsletters</Typography>
           <TextField
             size="small"
             placeholder="Search by title..."
@@ -57,7 +57,7 @@ export default function SentNewsletters() {
                 </InputAdornment>
               ),
             }}
-            sx={{ minWidth: 200, background: '#fff', borderRadius: 2 }}
+            sx={{ minWidth: { xs: 120, sm: 200 }, background: '#fff', borderRadius: 2 }}
           />
         </Box>
         <NewsletterTable

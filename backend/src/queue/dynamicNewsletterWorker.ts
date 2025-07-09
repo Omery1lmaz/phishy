@@ -84,6 +84,11 @@ export function startNewsletterWorker(newsletterId: string, batchSize: number) {
       }
       if (jobCounter === totalJobs) {
         logger.info(`[WORKER TAMAMLANDI] Kuyruk: ${queueName} | Toplam iş: ${totalJobs}`);
+        // Tüm alıcılara gönderim tamamlandıysa newsletter'ın status'unu 'Gönderildi' yap
+        await Newsletter.updateOne(
+          { _id: newsletterId },
+          { $set: { status: 'Gönderildi', sentAt: new Date() } }
+        );
       }
     },
     {

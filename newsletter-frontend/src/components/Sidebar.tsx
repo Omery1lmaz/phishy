@@ -25,7 +25,7 @@ const Sidebar: React.FC = () => {
         position: 'fixed',
         left: 0,
         top: 0,
-        display: { xs: 'none', md: 'block' },
+        // display: { xs: 'none', md: 'block' }, // kaldırıldı, Drawer ile kontrol edilecek
       }}
     >
       <List>

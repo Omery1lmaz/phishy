@@ -54,19 +54,19 @@ export default function SentNewsletterDetail() {
 
   return (
     <Box display="flex" minHeight="100vh" fontFamily="Inter, Roboto, sans-serif">
-      <Box sx={{ flexGrow: 1, ml: { xs: 0, md: 28 }, p: { xs: 2, md: 4 }, minHeight: '100vh', background: '#f8fafc' }}>
-        <Box maxWidth={900} mx="auto">
-          <Stack direction="row" alignItems="center" spacing={2} mb={3}>
+      <Box sx={{ flexGrow: 1, ml: { xs: 0 }, p: { xs: 1, sm: 2, md: 4 }, minHeight: '100vh', background: '#f8fafc' }}>
+        <Box maxWidth={{ xs: '100%', sm: 900 }} mx={{ xs: 0, sm: 'auto' }}>
+          <Stack direction={{ xs: 'column', sm: 'row' }} alignItems="center" spacing={2} mb={3}>
             <IconButton onClick={() => navigate('/newsletters')} size="large" sx={{ mr: 1 }}>
               <ArrowBackIcon />
             </IconButton>
-            <Typography variant="h4" fontWeight={900} flex={1} textAlign="center" letterSpacing={-1} sx={{ fontFamily: 'Inter, Roboto, sans-serif' }}>
+            <Typography variant="h4" fontWeight={900} flex={1} textAlign="center" letterSpacing={-1} sx={{ fontFamily: 'Inter, Roboto, sans-serif' }} fontSize={{ xs: 22, sm: 28 }}>
               Sent Newsletter Detail
             </Typography>
           </Stack>
-          <Card elevation={2} sx={{ borderRadius: 4, p: { xs: 2, md: 4 }, background: '#fff', mb: 4 }}>
+          <Card elevation={2} sx={{ borderRadius: 4, p: { xs: 1, sm: 2, md: 4 }, background: '#fff', mb: 4, width: { xs: '100%', sm: 'auto' } }}>
             <CardContent>
-              <Typography variant="h5" fontWeight={800} mb={1} sx={{ fontFamily: 'Inter, Roboto, sans-serif', wordBreak: 'break-word' }}>
+              <Typography variant="h5" fontWeight={800} mb={1} sx={{ fontFamily: 'Inter, Roboto, sans-serif', wordBreak: 'break-word' }} fontSize={{ xs: 18, sm: 24 }}>
                 {newsletter.title}
               </Typography>
               <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} alignItems={{ xs: 'flex-start', sm: 'center' }} mb={2}>
@@ -77,14 +77,14 @@ export default function SentNewsletterDetail() {
                 <Chip label={`Delay: ${delay} sn`} color="default" sx={{ fontWeight: 600, fontSize: 14, borderRadius: 2 }} />
               </Stack>
               <Divider sx={{ my: 2 }} />
-              <Box sx={{ background: '#f8fafc', borderRadius: 2, p: { xs: 2, md: 3 }, minHeight: 120, border: '1px solid #e0e0e0', fontSize: 17, color: '#222', fontFamily: 'Inter, Roboto, sans-serif', lineHeight: 1.7, wordBreak: 'break-word' }}>
+              <Box sx={{ background: '#f8fafc', borderRadius: 2, p: { xs: 1, sm: 2, md: 3 }, minHeight: 120, border: '1px solid #e0e0e0', fontSize: { xs: 15, sm: 17 }, color: '#222', fontFamily: 'Inter, Roboto, sans-serif', lineHeight: 1.7, wordBreak: 'break-word', width: '100%' }}>
                 <div dangerouslySetInnerHTML={{ __html: newsletter.content }} />
               </Box>
             </CardContent>
           </Card>
-          <Paper elevation={1} sx={{ borderRadius: 4, p: { xs: 1, md: 3 }, background: '#fff' }}>
+          <Paper elevation={1} sx={{ borderRadius: 4, p: { xs: 1, sm: 2, md: 3 }, background: '#fff', width: { xs: '100%', sm: 'auto' } }}>
             <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} mb={2} alignItems={{ xs: 'stretch', sm: 'center' }}>
-              <Typography variant="h6" fontWeight={700} flex={1}>Alıcılar</Typography>
+              <Typography variant="h6" fontWeight={700} flex={1} fontSize={{ xs: 16, sm: 20 }}>Alıcılar</Typography>
               <Stack direction="row" spacing={1} flexWrap="wrap">
                 <Button variant={statusFilter === 'all' ? 'contained' : 'outlined'} size="small" onClick={() => setStatusFilter('all')}>Tümü</Button>
                 <Button variant={statusFilter === 'Gönderildi' ? 'contained' : 'outlined'} color="success" size="small" onClick={() => setStatusFilter('Gönderildi')}>Gönderildi</Button>
@@ -96,17 +96,17 @@ export default function SentNewsletterDetail() {
                 placeholder="E-posta ara..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                sx={{ minWidth: 200 }}
+                sx={{ minWidth: { xs: 100, sm: 200 } }}
               />
             </Stack>
-            <TableContainer sx={{ borderRadius: 2, maxHeight: 400, overflow: 'auto', boxShadow: 0 }}>
-              <Table size="small" stickyHeader>
+            <TableContainer sx={{ borderRadius: 2, maxHeight: 400, overflow: 'auto', boxShadow: 0, width: '100%', overflowX: 'auto' }}>
+              <Table size="small" stickyHeader sx={{ minWidth: 600 }}>
                 <TableHead>
                   <TableRow sx={{ background: '#f5f5f5' }}>
-                    <TableCell><b>E-posta</b></TableCell>
-                    <TableCell><b>Durum</b></TableCell>
-                    <TableCell><b>Oluşturulma</b></TableCell>
-                    <TableCell><b>Hata</b></TableCell>
+                    <TableCell sx={{ fontSize: { xs: 13, sm: 15 } }}><b>E-posta</b></TableCell>
+                    <TableCell sx={{ fontSize: { xs: 13, sm: 15 } }}><b>Durum</b></TableCell>
+                    <TableCell sx={{ fontSize: { xs: 13, sm: 15 } }}><b>Oluşturulma</b></TableCell>
+                    <TableCell sx={{ fontSize: { xs: 13, sm: 15 } }}><b>Hata</b></TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -118,7 +118,7 @@ export default function SentNewsletterDetail() {
                     </TableRow>
                   ) : filteredRecipients.map((r: any, i: number) => (
                     <TableRow key={i} sx={{ background: i % 2 === 0 ? '#f9f9fb' : '#fff', '&:hover': { background: '#e3f2fd' } }}>
-                      <TableCell>{r.email}</TableCell>
+                      <TableCell sx={{ fontSize: { xs: 13, sm: 15 } }}>{r.email}</TableCell>
                       <TableCell>
                         <Chip
                           label={r.status}
@@ -132,10 +132,10 @@ export default function SentNewsletterDetail() {
                               r.status === 'Sırada' ? 'warning' : 'error'
                           }
                           size="small"
-                          sx={{ fontWeight: 600, borderRadius: 2 }}
+                          sx={{ fontWeight: 600, borderRadius: 2, fontSize: { xs: 13, sm: 15 } }}
                         />
                       </TableCell>
-                      <TableCell>{r.createdAt ? new Date(r.createdAt).toLocaleString() : '-'}</TableCell>
+                      <TableCell sx={{ fontSize: { xs: 13, sm: 15 } }}>{r.createdAt ? new Date(r.createdAt).toLocaleString() : '-'}</TableCell>
                       <TableCell>
                         {r.error && (
                           <Tooltip title={r.error}>
