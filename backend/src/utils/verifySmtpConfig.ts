@@ -10,7 +10,6 @@
 import nodemailer from 'nodemailer';
 
 export async function verifySmtpConfig({ host, port, user, pass }: { host: string, port: number, user: string, pass: string }) {
-  console.log(host, port, user, pass , "test")
   const transporter = nodemailer.createTransport({
     host,
     port: Number(port),
