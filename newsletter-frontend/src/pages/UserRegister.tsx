@@ -3,6 +3,9 @@ import { Box, Card, CardContent, Typography, TextField, Button, Snackbar } from 
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import { useNavigate } from 'react-router-dom';
 import { userRegisterApi } from '../api/auth';
+import { userRegister } from '../store/authSlice';
+import type { AppDispatch } from '../store/store';
+import { useDispatch } from 'react-redux';
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -13,14 +16,17 @@ export default function UserRegister() {
   const [loading, setLoading] = useState(false);
   const [snackbar, setSnackbar] = useState<{ open: boolean; message: string; severity: 'success' | 'error' }>({ open: false, message: '', severity: 'success' });
   const navigate = useNavigate();
-
+  const dispatch = useDispatch<AppDispatch>()
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     try {
-      await userRegisterApi(form.email, form.password);
-      setSnackbar({ open: true, message: 'Registration successful!', severity: 'success' });
-      navigate('/user-login')
+      dispatch(userRegister({ email: form.email, password: form.password })).unwrap().then(() => {
+        navigate('/user-login')
+        setSnackbar({ open: true, message: 'Registration successful!', severity: 'success' });
+      }).catch((err) => {
+        setSnackbar({ open: true, message: err.response?.data?.error || 'Registration failed', severity: 'error' });
+      })
     } catch (e: any) {
       setSnackbar({ open: true, message: e.response?.data?.error || 'Registration failed', severity: 'error' });
     }

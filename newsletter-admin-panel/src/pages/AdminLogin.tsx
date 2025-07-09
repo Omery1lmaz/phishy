@@ -22,12 +22,19 @@ export default function AdminLogin() {
     e.preventDefault();
     setLoading(true);
     try {
-      dispatch(adminLogin({ email: form.email, password: form.password }))
+      dispatch(adminLogin({ email: form.email, password: form.password })).unwrap().then((res) => {
+        setTimeout(() => navigate('/'), 1200);
+      })
+        .catch((err) => {
+          setSnackbar({ open: true, message: err.response?.data?.error || 'Login failed', severity: 'error' });
+
+        })
       // await adminLogin({ email: form.email, password: form.password });
       setSnackbar({ open: true, message: 'Login successful!', severity: 'success' });
-      setTimeout(() => navigate('/'), 1200);
+
     } catch (e: any) {
       setSnackbar({ open: true, message: e.response?.data?.error || 'Login failed', severity: 'error' });
+
     }
     setLoading(false);
   };

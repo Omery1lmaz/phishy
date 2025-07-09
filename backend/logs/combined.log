@@ -2523,3 +2523,68 @@
 {"level":"info","message":"GET /newsletters - ::1","timestamp":"2025-07-09T12:25:00.212Z"}
 {"level":"info","message":"GET /smtp-configs - ::1","timestamp":"2025-07-09T12:25:01.995Z"}
 {"level":"info","message":"GET /newsletters - ::1","timestamp":"2025-07-09T12:25:04.098Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e15201d5a3d3fd40b2b72 | Batch size: 100","timestamp":"2025-07-09T14:51:55.402Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e35749ce933f560c40545 | Batch size: 100","timestamp":"2025-07-09T14:51:55.527Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e35da9ce933f560c40550 | Batch size: 10","timestamp":"2025-07-09T14:51:55.539Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e3b4637c99afb209aff45 | Batch size: 10","timestamp":"2025-07-09T14:51:55.571Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e3f9f5ef2f7e1b88fd867 | Batch size: 200","timestamp":"2025-07-09T14:51:55.574Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e48dc2ac951106270c9b5 | Batch size: 10","timestamp":"2025-07-09T14:51:55.585Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e7ab4f927e9d0bd9df766 | Batch size: 200","timestamp":"2025-07-09T14:51:55.590Z"}
+{"level":"info","message":"Server started on port 3001","timestamp":"2025-07-09T14:51:55.651Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e15201d5a3d3fd40b2b72 | Batch size: 100","timestamp":"2025-07-09T15:16:58.642Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e35749ce933f560c40545 | Batch size: 100","timestamp":"2025-07-09T15:16:58.859Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e35da9ce933f560c40550 | Batch size: 10","timestamp":"2025-07-09T15:16:58.869Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e3b4637c99afb209aff45 | Batch size: 10","timestamp":"2025-07-09T15:16:58.884Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e3f9f5ef2f7e1b88fd867 | Batch size: 200","timestamp":"2025-07-09T15:16:58.892Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e48dc2ac951106270c9b5 | Batch size: 10","timestamp":"2025-07-09T15:16:58.917Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e7ab4f927e9d0bd9df766 | Batch size: 200","timestamp":"2025-07-09T15:16:58.937Z"}
+{"level":"info","message":"Server started on port 3001","timestamp":"2025-07-09T15:16:59.080Z"}
+{"level":"info","message":"POST /newsletters - ::ffff:192.168.65.1","timestamp":"2025-07-09T15:17:48.661Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e881c7b872ae60921cc55 | Batch size: 200","timestamp":"2025-07-09T15:17:49.059Z"}
+{"level":"info","message":"[JOB BAŞLADI] Kuyruk: mail-newsletter-686e881c7b872ae60921cc55 | İş: 1/2 | Alıcı: omer@gmail.com | Başlama: 7/9/2025, 3:17:49 PM","timestamp":"2025-07-09T15:17:49.345Z"}
+{"level":"info","message":"[JOB BAŞLADI] Kuyruk: mail-newsletter-686e881c7b872ae60921cc55 | İş: 2/2 | Alıcı: omer@gmail.com | Başlama: 7/9/2025, 3:17:49 PM","timestamp":"2025-07-09T15:17:49.371Z"}
+{"level":"info","message":"[MAIL GÖNDERİLDİ] Kuyruk: mail-newsletter-686e881c7b872ae60921cc55 | İş: 2/2 | Alıcı: omer@gmail.com | Gönderim Zamanı: 7/9/2025, 3:17:51 PM | Gönderim Süresi: 2 sn","timestamp":"2025-07-09T15:17:51.309Z"}
+{"level":"info","message":"[MAIL GÖNDERİLDİ] Kuyruk: mail-newsletter-686e881c7b872ae60921cc55 | İş: 2/2 | Alıcı: omer@gmail.com | Gönderim Zamanı: 7/9/2025, 3:17:51 PM | Gönderim Süresi: 2 sn","timestamp":"2025-07-09T15:17:51.563Z"}
+{"level":"info","message":"[WORKER TAMAMLANDI] Kuyruk: mail-newsletter-686e881c7b872ae60921cc55 | Toplam iş: 2","timestamp":"2025-07-09T15:17:51.572Z"}
+{"level":"info","message":"[WORKER TAMAMLANDI] Kuyruk: mail-newsletter-686e881c7b872ae60921cc55 | Toplam iş: 2","timestamp":"2025-07-09T15:17:51.737Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e15201d5a3d3fd40b2b72 | Batch size: 100","timestamp":"2025-07-09T15:27:50.556Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e35749ce933f560c40545 | Batch size: 100","timestamp":"2025-07-09T15:27:50.808Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e35da9ce933f560c40550 | Batch size: 10","timestamp":"2025-07-09T15:27:50.829Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e3b4637c99afb209aff45 | Batch size: 10","timestamp":"2025-07-09T15:27:50.860Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e3f9f5ef2f7e1b88fd867 | Batch size: 200","timestamp":"2025-07-09T15:27:50.866Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e48dc2ac951106270c9b5 | Batch size: 10","timestamp":"2025-07-09T15:27:50.874Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e7ab4f927e9d0bd9df766 | Batch size: 200","timestamp":"2025-07-09T15:27:50.975Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e881c7b872ae60921cc55 | Batch size: 200","timestamp":"2025-07-09T15:27:50.988Z"}
+{"level":"info","message":"Server started on port 3001","timestamp":"2025-07-09T15:27:51.166Z"}
+{"level":"info","message":"POST /newsletters - ::ffff:192.168.65.1","timestamp":"2025-07-09T15:30:52.113Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e8b2c8e8a74999810c105 | Batch size: 200","timestamp":"2025-07-09T15:30:53.535Z"}
+{"level":"info","message":"[JOB BAŞLADI] Kuyruk: mail-newsletter-686e8b2c8e8a74999810c105 | İş: 1/2 | Alıcı: omer@gmail.com | Başlama: 7/9/2025, 3:30:54 PM","timestamp":"2025-07-09T15:30:55.599Z"}
+{"level":"info","message":"[QUEUE DELAY] Kuyruk: mail-newsletter-686e8b2c8e8a74999810c105 | İş: 2/2 | Alıcı: omer@gmail.com | Kuyruğa eklenme: 7/9/2025, 3:30:54 PM | Başlama: 7/9/2025, 3:30:56 PM | Delay: 1 sn","timestamp":"2025-07-09T15:30:56.059Z"}
+{"level":"info","message":"[JOB BAŞLADI] Kuyruk: mail-newsletter-686e8b2c8e8a74999810c105 | İş: 2/2 | Alıcı: omer@gmail.com | Başlama: 7/9/2025, 3:30:56 PM","timestamp":"2025-07-09T15:30:56.060Z"}
+{"level":"info","message":"[MAIL GÖNDERİLDİ] Kuyruk: mail-newsletter-686e8b2c8e8a74999810c105 | İş: 2/2 | Alıcı: omer@gmail.com | Gönderim Zamanı: 7/9/2025, 3:30:58 PM | Gönderim Süresi: 2 sn","timestamp":"2025-07-09T15:30:58.280Z"}
+{"level":"info","message":"[MAIL GÖNDERİLDİ] Kuyruk: mail-newsletter-686e8b2c8e8a74999810c105 | İş: 2/2 | Alıcı: omer@gmail.com | Gönderim Zamanı: 7/9/2025, 3:30:58 PM | Gönderim Süresi: 3 sn","timestamp":"2025-07-09T15:30:58.484Z"}
+{"level":"info","message":"[WORKER TAMAMLANDI] Kuyruk: mail-newsletter-686e8b2c8e8a74999810c105 | Toplam iş: 2","timestamp":"2025-07-09T15:30:58.592Z"}
+{"level":"info","message":"[WORKER TAMAMLANDI] Kuyruk: mail-newsletter-686e8b2c8e8a74999810c105 | Toplam iş: 2","timestamp":"2025-07-09T15:30:58.740Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e15201d5a3d3fd40b2b72 | Batch size: 100","timestamp":"2025-07-09T15:52:15.590Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e35749ce933f560c40545 | Batch size: 100","timestamp":"2025-07-09T15:52:16.412Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e35da9ce933f560c40550 | Batch size: 10","timestamp":"2025-07-09T15:52:17.393Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e3b4637c99afb209aff45 | Batch size: 10","timestamp":"2025-07-09T15:52:17.955Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e3f9f5ef2f7e1b88fd867 | Batch size: 200","timestamp":"2025-07-09T15:52:19.021Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e48dc2ac951106270c9b5 | Batch size: 10","timestamp":"2025-07-09T15:52:19.894Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e7ab4f927e9d0bd9df766 | Batch size: 200","timestamp":"2025-07-09T15:52:21.412Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e881c7b872ae60921cc55 | Batch size: 200","timestamp":"2025-07-09T15:52:24.697Z"}
+{"level":"info","message":"[WORKER BAŞLADI] Kuyruk: mail-newsletter-686e8b2c8e8a74999810c105 | Batch size: 200","timestamp":"2025-07-09T15:52:30.084Z"}
+{"level":"info","message":"Server started on port 3001","timestamp":"2025-07-09T15:52:42.425Z"}
+{"level":"info","message":"POST /auth/user/login - ::ffff:192.168.65.1","timestamp":"2025-07-09T15:55:11.455Z"}
+{"level":"info","message":"POST /auth/user/login - ::ffff:192.168.65.1","timestamp":"2025-07-09T15:55:22.771Z"}
+{"level":"info","message":"POST /auth/admin/login - ::ffff:192.168.65.1","timestamp":"2025-07-09T16:20:04.284Z"}
+{"level":"info","message":"POST /auth/admin/login - ::ffff:192.168.65.1","timestamp":"2025-07-09T16:21:07.752Z"}
+{"level":"info","message":"POST /auth/admin/login - ::ffff:192.168.65.1","timestamp":"2025-07-09T16:21:13.106Z"}
+{"level":"info","message":"POST /auth/admin/login - ::ffff:192.168.65.1","timestamp":"2025-07-09T16:24:10.706Z"}
+{"level":"info","message":"GET /newsletters - ::ffff:192.168.65.1","timestamp":"2025-07-09T16:24:14.645Z"}
+{"level":"info","message":"GET /smtp-configs - ::ffff:192.168.65.1","timestamp":"2025-07-09T16:24:15.879Z"}
+{"level":"info","message":"POST /auth/user/login - ::ffff:192.168.65.1","timestamp":"2025-07-09T16:25:36.100Z"}
+{"level":"info","message":"POST /auth/user/login - ::ffff:192.168.65.1","timestamp":"2025-07-09T16:43:11.710Z"}
+{"level":"info","message":"POST /auth/user/register - ::ffff:192.168.65.1","timestamp":"2025-07-09T16:43:22.349Z"}
+{"level":"info","message":"POST /auth/user/login - ::ffff:192.168.65.1","timestamp":"2025-07-09T16:43:24.022Z"}
+{"level":"info","message":"GET /newsletters - ::ffff:192.168.65.1","timestamp":"2025-07-09T16:43:24.346Z"}

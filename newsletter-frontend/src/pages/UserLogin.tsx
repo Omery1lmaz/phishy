@@ -21,9 +21,12 @@ export default function UserLogin() {
     e.preventDefault();
     setLoading(true);
     try {
-      dispatch(userLogin({ email: form.email, password: form.password }))
-      navigate('/admin')
-      setSnackbar({ open: true, message: 'Login successful!', severity: 'success' });
+      dispatch(userLogin({ email: form.email, password: form.password })).unwrap().then(() => {
+        navigate('/admin')
+        setSnackbar({ open: true, message: 'Login successful!', severity: 'success' });
+      }).catch((err) => {
+        setSnackbar({ open: true, message: err.response?.data?.error || 'Login failed', severity: 'error' });
+      })
 
     } catch (e: any) {
       setSnackbar({ open: true, message: e.response?.data?.error || 'Login failed', severity: 'error' });

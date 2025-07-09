@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Box, Card, CardContent, Typography, TextField, Button, Snackbar } from '@mui/material';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import { useNavigate } from 'react-router-dom';
-import { adminRegister } from '../api/auth';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../store/store';
+import { adminRegister } from '../store/authSlice';
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -13,14 +15,18 @@ export default function AdminRegister() {
   const [loading, setLoading] = useState(false);
   const [snackbar, setSnackbar] = useState<{ open: boolean; message: string; severity: 'success' | 'error' }>({ open: false, message: '', severity: 'success' });
   const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     try {
-      await adminRegister({ email: form.email, password: form.password });
-      setSnackbar({ open: true, message: 'Registration successful!', severity: 'success' });
-      setTimeout(() => navigate('/admin-login'), 1200);
+      dispatch(adminRegister({ email: form.email, password: form.password })).unwrap().then(() => {
+        navigate('/admin-login')
+        setSnackbar({ open: true, message: 'Registration successful!', severity: 'success' });
+      }).catch((err) => {
+        setSnackbar({ open: true, message: err.response?.data?.error || 'Registration failed', severity: 'error' });
+      })
     } catch (e: any) {
       setSnackbar({ open: true, message: e.response?.data?.error || 'Registration failed', severity: 'error' });
     }
