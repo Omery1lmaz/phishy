@@ -7,24 +7,25 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import ErrorIcon from '@mui/icons-material/Error';
 import GroupIcon from '@mui/icons-material/Group';
+import ReplayIcon from '@mui/icons-material/Replay';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 import { getNewsletter } from '../api/newsletter';
+import { resendFailedRecipients } from '../api/newsletter';
 import Sidebar from '../components/Sidebar';
 
 export default function NewsletterDetailPage() {
   const { id } = useParams();
-  const { token } = useSelector((state: RootState) => state.auth);
   const navigate = useNavigate();
   const [newsletter, setNewsletter] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [snackbar, setSnackbar] = useState<{ open: boolean; message: string; severity: 'success' | 'error' }>({ open: false, message: '', severity: 'success' });
-
   // Filtre ve arama
   const [search, setSearch] = useState('');
   const [statusFilter, setStatusFilter] = useState<'all' | 'Gönderildi' | 'Sırada' | 'Hata'>('all');
+  const [resendLoading, setResendLoading] = useState(false);
 
   useEffect(() => {
     const fetchNewsletter = async () => {
@@ -61,6 +62,18 @@ export default function NewsletterDetailPage() {
   const delay = newsletter.delay || 0;
   const failedCount = newsletter.recipients?.filter((r: any) => r.status === 'Hata').length || 0;
 
+  // Hatalı alıcılar için yeniden gönderim
+  const handleResendFailed = async () => {
+    setResendLoading(true);
+    try {
+      await resendFailedRecipients(newsletter._id);
+      setSnackbar({ open: true, message: 'Failed recipients are being resent.', severity: 'success' });
+    } catch (e: any) {
+      setSnackbar({ open: true, message: e.response?.data?.error || 'Resend failed.', severity: 'error' });
+    }
+    setResendLoading(false);
+  };
+
   return (
     <Box display="flex" minHeight="100vh" fontFamily="Inter, Roboto, sans-serif">
       <Sidebar />
@@ -81,13 +94,54 @@ export default function NewsletterDetailPage() {
               <Typography variant="h5" fontWeight={800} mb={1} sx={{ fontFamily: 'Inter, Roboto, sans-serif', wordBreak: 'break-word' }}>
                 {newsletter.title}
               </Typography>
-              <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} alignItems={{ xs: 'flex-start', sm: 'center' }} mb={2}>
-                <Chip icon={<AccessTimeIcon />} label={newsletter.sendTime ? new Date(newsletter.sendTime).toLocaleString() : '-'} color="default" sx={{ fontWeight: 600, fontSize: 14, borderRadius: 2 }} />
-                <Chip icon={<GroupIcon />} label={`${totalRecipients} alıcı`} color="info" sx={{ fontWeight: 600, fontSize: 14, borderRadius: 2 }} />
-                <Chip icon={<CheckCircleIcon />} label={`Gönderildi: ${sentCount}/${totalRecipients}`} color={sentCount === totalRecipients && totalRecipients > 0 ? 'success' : 'warning'} sx={{ fontWeight: 700, fontSize: 14, borderRadius: 2 }} />
-                <Chip label={`Batch: ${batchSize}`} color="primary" sx={{ fontWeight: 600, fontSize: 14, borderRadius: 2 }} />
-                <Chip label={`Delay: ${delay} sn`} color="default" sx={{ fontWeight: 600, fontSize: 14, borderRadius: 2 }} />
+              <Stack
+                direction={{ xs: 'column', sm: 'row' }}
+                spacing={{ xs: 1, sm: 2 }}
+                alignItems={{ xs: 'stretch', sm: 'center' }}
+                mb={2}
+                flexWrap="wrap"
+              >
+                <Chip icon={<AccessTimeIcon />} label={newsletter.sendTime ? new Date(newsletter.sendTime).toLocaleString() : '-'} color="default" sx={{ fontWeight: 600, fontSize: 14, borderRadius: 2, width: { xs: '100%', sm: 'auto' }, mb: { xs: 0.5, sm: 0 } }} />
+                <Chip icon={<GroupIcon />} label={`${totalRecipients} alıcı`} color="info" sx={{ fontWeight: 600, fontSize: 14, borderRadius: 2, width: { xs: '100%', sm: 'auto' }, mb: { xs: 0.5, sm: 0 } }} />
+                <Chip icon={<CheckCircleIcon />} label={`Gönderildi: ${sentCount}/${totalRecipients}`} color={sentCount === totalRecipients && totalRecipients > 0 ? 'success' : 'warning'} sx={{ fontWeight: 700, fontSize: 14, borderRadius: 2, width: { xs: '100%', sm: 'auto' }, mb: { xs: 0.5, sm: 0 } }} />
+                <Chip label={`Batch: ${batchSize}`} color="primary" sx={{ fontWeight: 600, fontSize: 14, borderRadius: 2, width: { xs: '100%', sm: 'auto' }, mb: { xs: 0.5, sm: 0 } }} />
+                <Chip label={`Delay: ${delay} sn`} color="default" sx={{ fontWeight: 600, fontSize: 14, borderRadius: 2, width: { xs: '100%', sm: 'auto' }, mb: { xs: 0.5, sm: 0 } }} />
+               
               </Stack>
+              {failedCount > 0 && (
+                  <Button
+                    variant="contained"
+                    color="error"
+                    size="small"
+                    onClick={handleResendFailed}
+                    disabled={resendLoading}
+                    sx={{
+                      fontWeight: 700,
+                      borderRadius: 2,
+                      minWidth: 60,
+                      minHeight: 40,
+                      px: 1.5,
+                      py: 0.5,
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      lineHeight: 1.1,
+                      textTransform: 'none',
+                      boxShadow: 'none',
+                      width: { xs: '100%', sm: 'auto' },
+                      mb: { xs: 0.5, sm: 0 },
+                    }}
+                  >
+                    <Stack direction="row" alignItems="center" spacing={0.5}>
+                      <ReplayIcon fontSize="small" />
+                      <span style={{ fontWeight: 700, fontSize: 13 }}>
+                        {resendLoading ? 'Gönderiliyor...' : 'Hatalıları Gönder'}
+                      </span>
+                    </Stack>
+                    <span style={{ fontSize: 12, fontWeight: 600, marginTop: 2 }}>{`(${failedCount})`}</span>
+                  </Button>
+                )}
               <Divider sx={{ my: 2 }} />
               <Box sx={{ background: '#f8fafc', borderRadius: 2, p: { xs: 2, md: 3 }, minHeight: 120, border: '1px solid #e0e0e0', fontSize: 17, color: '#222', fontFamily: 'Inter, Roboto, sans-serif', lineHeight: 1.7, wordBreak: 'break-word' }}>
                 <div dangerouslySetInnerHTML={{ __html: newsletter.content }} />
