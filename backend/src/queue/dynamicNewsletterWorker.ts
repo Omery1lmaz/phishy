@@ -84,11 +84,23 @@ export function startNewsletterWorker(newsletterId: string, batchSize: number) {
       }
       if (jobCounter === totalJobs) {
         logger.info(`[WORKER TAMAMLANDI] Kuyruk: ${queueName} | Toplam iş: ${totalJobs}`);
-        // Tüm alıcılara gönderim tamamlandıysa newsletter'ın status'unu 'Gönderildi' yap
-        await Newsletter.updateOne(
-          { _id: newsletterId },
-          { $set: { status: 'Gönderildi', sentAt: new Date() } }
-        );
+        // Tüm alıcılara gönderim tamamlandıysa newsletter'ın status'unu güncelle
+        const newsletter = await Newsletter.findById(newsletterId);
+        if (newsletter) {
+          const allSent = newsletter.recipients.every(r => r.status === 'Gönderildi');
+          const anyError = newsletter.recipients.some(r => r.status === 'Hata');
+          if (allSent) {
+            await Newsletter.updateOne(
+              { _id: newsletterId },
+              { $set: { status: 'Gönderildi', sentAt: new Date() } }
+            );
+          } else if (anyError) {
+            await Newsletter.updateOne(
+              { _id: newsletterId },
+              { $set: { status: 'Kısmen Gönderildi' } }
+            );
+          }
+        }
       }
     },
     {

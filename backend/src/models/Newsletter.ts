@@ -4,8 +4,9 @@ import mongoose, { Document, Schema, Types, Model } from 'mongoose';
  * Bültenin mevcut durumunu temsil eden tip.
  * 'Planlandı': Gönderilmek üzere planlandı
  * 'Gönderildi': Tüm alıcılara gönderildi
+ * 'Kısmen Gönderildi': Bazı alıcılarda hata var
  */
-export type NewsletterStatus = 'Planlandı' | 'Gönderildi';
+export type NewsletterStatus = 'Planlandı' | 'Gönderildi' | 'Kısmen Gönderildi';
 
 /**
  * Bir bülten alıcısının bilgilerini ve gönderim durumunu tutar.
@@ -72,7 +73,7 @@ const NewsletterSchema = new Schema<INewsletter>({
   sendTime: { type: Date, required: true },
   batchSize: { type: Number, required: true, min: 1 },
   smtpConfig: { type: Schema.Types.ObjectId, ref: 'SmtpConfig', required: true },
-  status: { type: String, enum: ['Planlandı', 'Gönderildi'], default: 'Planlandı' },
+  status: { type: String, enum: ['Planlandı', 'Gönderildi', 'Kısmen Gönderildi'], default: 'Planlandı' },
   sentAt: { type: Date },
   delay: { type: Number, default: 0 }, // saniye cinsinden, opsiyonel
 }, { timestamps: true });
