@@ -4314,3 +4314,7 @@
 {"level":"info","message":"[WORKER TAMAMLANDI] Kuyruk: mail-newsletter-686edee449702d67bf7dcf5c | Toplam iş: 560","timestamp":"2025-07-09T21:28:26.982Z"}
 {"level":"info","message":"[WORKER TAMAMLANDI] Kuyruk: mail-newsletter-686edee449702d67bf7dcf5c | Toplam iş: 560","timestamp":"2025-07-09T21:28:27.588Z"}
 {"level":"info","message":"GET /newsletters - ::1","timestamp":"2025-07-09T21:28:40.792Z"}
+{"level":"info","message":"GET /newsletters/686edee449702d67bf7dcf5c - ::1","timestamp":"2025-07-09T21:42:15.029Z"}
+{"level":"info","message":"GET /newsletters - ::1","timestamp":"2025-07-09T21:53:52.780Z"}
+{"level":"info","message":"GET /newsletters/686edee449702d67bf7dcf5c - ::1","timestamp":"2025-07-09T21:53:56.533Z"}
+{"level":"info","message":"GET /newsletters - ::1","timestamp":"2025-07-09T21:54:54.639Z"}

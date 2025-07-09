@@ -53,7 +53,7 @@ const NewsletterTable: React.FC<NewsletterTableProps> = ({ newsletters, onDetail
           <TableRow key={n._id} hover sx={{ background: '#f9f9fb', '&:hover': { background: '#e3f2fd' } }}>
             <TableCell sx={{ fontWeight: 600 }}>{n.title}</TableCell>
             <TableCell>
-              <StatusChip label={n.status} color={n.status === 'Gönderildi' ? 'success' : n.status === 'Hata' ? 'error' : 'warning'} size="small" />
+              <StatusChip label={n.status} color={n.status === 'Gönderildi' ? 'success' : n.status === 'Hata' || n.status === 'Kısmen Gönderildi' ? 'error' : 'warning'} size="small" />
             </TableCell>
             <TableCell>{n.sendTime ? new Date(n.sendTime).toLocaleString() : '-'}</TableCell>
             <TableCell>{n.recipients?.length || 0}</TableCell>

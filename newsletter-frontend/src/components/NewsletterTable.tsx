@@ -25,7 +25,7 @@ const NewsletterTable: React.FC<NewsletterTableProps> = ({ newsletters, onDetail
             <CardContent>
               <Typography variant="h6" fontWeight={700}>{n.title}</Typography>
               <Stack direction="row" spacing={1} alignItems="center" flexWrap="wrap" my={1}>
-                <Chip label={n.status} color={n.status === 'Gönderildi' ? 'success' : n.status === 'Hata' ? 'error' : 'warning'} size="small" sx={{ fontWeight: 700, fontSize: 15, borderRadius: 1, px: 1 }} />
+                <Chip label={n.status} color={n.status === 'Gönderildi' ? 'success' : n.status === 'Hata' || n.status === 'Kısmen Gönderildi' ? 'error' : 'warning'} size="small" sx={{ fontWeight: 700, fontSize: 15, borderRadius: 1, px: 1 }} />
                 <Typography variant="body2">{n.sendTime ? new Date(n.sendTime).toLocaleString() : '-'}</Typography>
                 <Typography variant="body2">Alıcı: {n.recipients?.length || 0}</Typography>
               </Stack>
@@ -73,7 +73,7 @@ const NewsletterTable: React.FC<NewsletterTableProps> = ({ newsletters, onDetail
               <TableCell>
                 <Chip
                   label={n.status}
-                  color={n.status === 'Gönderildi' ? 'success' : n.status === 'Hata' ? 'error' : 'warning'}
+                  color={n.status === 'Gönderildi' ? 'success' : n.status === 'Hata' || n.status === 'Kısmen Gönderildi' ? 'error' : 'warning'}
                   size="small"
                   sx={{ fontWeight: 700, fontSize: 15, borderRadius: 1, px: 1 }}
                 />
