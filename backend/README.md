@@ -52,3 +52,4 @@ Bu komut ile backend, frontendler ve redis birlikte ayağa kalkar.
 - Backend varsayılan olarak 3001 portunda çalışır.
 - Redis servisi gereklidir (docker-compose ile otomatik başlar).
 - Frontend uygulamaları için de .env dosyası oluşturulabilir.
+# phishy
